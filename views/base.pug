@@ -1,0 +1,209 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+
+    link(
+      href='https://fonts.googleapis.com/css?family=Lato:300,300i,700'
+      rel='stylesheet'
+    )
+
+    link(rel='stylesheet' href='css/style.css')
+    link(rel='shortcut icon' type='image/png' href='img/favicon.png')
+
+    title Natours | Exciting tours for adventurous people
+
+  body
+
+    header.header
+      nav.nav.nav--tours
+        a.nav__el(href='#') All tours
+
+        form.nav__search
+          button.nav__search-btn
+            svg
+              use(xlink:href='img/icons.svg#icon-search')
+
+          input.nav__search-input(
+            type='text'
+            placeholder='Search tours'
+          )
+
+      .header__logo
+        img(src='img/logo-white.png' alt='Natours logo')
+
+      nav.nav.nav--user
+        a.nav__el(href='#') My bookings
+
+        a.nav__el(href='#')
+          img.nav__user-img(
+            src='img/user.jpg'
+            alt='User photo'
+          )
+          span Jonas
+
+    mixin tourCard(img, title, difficulty, description, location, date, stops, people, price, rating, reviews, link)
+
+      .card
+        .card__header
+          .card__picture
+            .card__picture-overlay &nbsp;
+            img.card__picture-img(
+              src=img
+              alt=title
+            )
+
+          h3.heading-tertirary
+            span= title
+
+        .card__details
+          h4.card__sub-heading= difficulty
+
+          p.card__text= description
+
+          .card__data
+            svg.card__icon
+              use(xlink:href='img/icons.svg#icon-map-pin')
+            span= location
+
+          .card__data
+            svg.card__icon
+              use(xlink:href='img/icons.svg#icon-calendar')
+            span= date
+
+          .card__data
+            svg.card__icon
+              use(xlink:href='img/icons.svg#icon-flag')
+            span= stops
+
+          .card__data
+            svg.card__icon
+              use(xlink:href='img/icons.svg#icon-user')
+            span= people
+
+        .card__footer
+          p
+            span.card__footer-value= price
+            span.card__footer-text per person
+
+          p.card__ratings
+            span.card__footer-value= rating
+            span.card__footer-text rating (#{reviews})
+
+          a.btn.btn--green.btn--small(href=link) Details
+
+    section.overview
+      .card-container
+
+        +tourCard(
+          'img/tour-1-cover.jpg',
+          'The Forest Hiker',
+          'Easy 5-day tour',
+          'Breathtaking hike through the Canadian Banff National Park',
+          'Banff, Canada',
+          'April 2021',
+          '3 stops',
+          '25 people',
+          '$297',
+          '4.9',
+          '21',
+          '#'
+        )
+
+        +tourCard(
+          'img/tour-2-cover.jpg',
+          'The Sea Explorer',
+          'Medium-difficult 7-day tour',
+          'Exploring the jaw-dropping US east coast by foot and by boat',
+          'Oregon, US',
+          'June 2021',
+          '4 stops',
+          '15 people',
+          '$497',
+          '4.8',
+          '12',
+          '#'
+        )
+
+        +tourCard(
+          'img/tour-3-cover.jpg',
+          'The Snow Adventurer',
+          'Difficult 3-day tour',
+          'Exciting adventure in the snow with snowboarding and skiing',
+          'Aspen, USA',
+          'January 2022',
+          '2 stops',
+          '10 people',
+          '$697',
+          '4.9',
+          '7',
+          '#'
+        )
+
+        +tourCard(
+          'img/tour-4-cover.jpg',
+          'The City Wanderer',
+          'Easy 7-day tour',
+          'Living the life of Wanderlust in the US most beautiful cities',
+          'NYC, USA',
+          'March 2021',
+          '3 stops',
+          '20 people',
+          '$997',
+          '4.8',
+          '31',
+          '#'
+        )
+
+        +tourCard(
+          'img/tour-5-cover.jpg',
+          'The Park Camper',
+          'Medium-Difficult 10-day tour',
+          'Breathing in Nature in America most spectacular National Parks',
+          'Las Vegas, USA',
+          'August 2021',
+          '4 stops',
+          '15 people',
+          '$1,497',
+          '4.9',
+          '19',
+          '/tour.html'
+        )
+
+        +tourCard(
+          'img/tour-6-cover.jpg',
+          'The Sports Lover',
+          'Difficult 14-day tour',
+          'Surfing, skating, parajumping, rock climbing and more, all in one tour',
+          'California, USA',
+          'July 2021',
+          '5 stops',
+          '8 people',
+          '$1,997',
+          '4.7',
+          '23',
+          '#'
+        )
+
+    .footer
+      .footer__logo
+        img(
+          src='img/logo-green.png'
+          alt='Natours logo'
+        )
+
+      ul.footer__nav
+        li
+          a(href='#') About us
+        li
+          a(href='#') Download apps
+        li
+          a(href='#') Become a guide
+        li
+          a(href='#') Careers
+        li
+          a(href='#') Contact
+
+      p.footer__copyright
+        | © by Jonas Schmedtmann. All rights reserved.
